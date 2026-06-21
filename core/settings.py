@@ -133,7 +133,7 @@ else:
             "default": {
                 "BACKEND": "channels_redis.core.RedisChannelLayer",
                 "CONFIG": {
-                    "hosts": [REDIS_URL],
+                    "hosts": 'redis://red-d8rp4u3eo5us73dlepgg:mjMK4qaf7qf3yya6rZ1tq4KSGDg6K5iL@red-d8rp4u3eo5us73dlepgg:6379',
                 },
             },
         }
