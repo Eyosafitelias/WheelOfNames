@@ -1,17 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <title>Wheel of Names Clone</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+    <title>Wheel of Names</title>
+    <meta charset=utf-8>
+    <meta name=description
+        content="Free and easy to use spinner. Used by teachers and for raffles. Enter names, spin wheel to pick a random winner. Customize look and feel, save and share wheels.">
+    <meta name=format-detection content="telephone=no">
+    <meta name=msapplication-tap-highlight content=no>
+    <meta name=theme-color content=#3369e8>
+    <meta name=wot-verification content=95cd5db0576bcf925e08>
+    <meta property=og:url content=https://wheelofnames.com>
+    <meta property=og:type content=website>
+    <meta property=og:title content="Wheel of Names">
+    <meta property=og:description
+        content="Enter names, spin wheel to pick a random winner. Customize look and feel, save and share wheels.">
+    <meta property=og:image content=https://wheelofnames.com/images/open-graph-image.png>
+    <meta property=og:image:width content=1163>
+    <meta property=og:image:height content=1163>
+    <meta property=fb:app_id content=1438567632972557>
+    <meta name=viewport content="initial-scale=1,maximum-scale=5,minimum-scale=1,width=device-width">
+    <link rel=icon type=image/png sizes=128x128 href="{% static 'icons/favicon-128x128.png' %}">
+    <link rel=icon type=image/png sizes=96x96 href="{% static 'icons/favicon-96x96.png' %}">
+    <link rel=icon type=image/png sizes=32x32 href="{% static 'icons/favicon-32x32.png' %}">
+    <link rel=icon type=image/png sizes=16x16 href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel=icon type=image/ico href="{% static 'favicon.ico' %}">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -26,6 +48,7 @@
             box-sizing: inherit;
             -webkit-tap-highlight-color: transparent;
         }
+
         html,
         body {
             margin: 0;
@@ -49,6 +72,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .q-btn {
             background: none;
             border: none;
@@ -67,109 +91,141 @@
             transition: background .2s, color .2s;
             position: relative;
         }
+
         .q-btn:hover {
             background: rgba(255, 255, 255, 0.08);
         }
+
         .q-btn--flat {
             background: transparent;
         }
+
         .q-btn--round {
             border-radius: 50%;
             min-width: 36px;
             justify-content: center;
             padding: 0 8px;
         }
+
         .q-btn--no-caps {
             text-transform: none;
         }
+
         .q-btn--unelevated {
             box-shadow: none;
         }
+
         .q-btn--dense {
             min-height: 28px;
             padding: 4px 8px;
             font-size: 12px;
         }
+
         .q-btn--rectangle {
             border-radius: 3px;
         }
+
         .bg-primary {
             background: #1976d2;
         }
+
         .bg-primary:hover {
             background: #1565c0;
         }
+
         .text-white {
             color: #fff;
         }
+
         .bg-warning {
             background: #f2c037;
         }
+
         .text-black {
             color: #000;
         }
+
         .bg-grey-7 {
             background: #757575;
         }
+
         .text-grey-7 {
             color: #757575;
         }
+
         .row {
             display: flex;
             flex-wrap: wrap;
         }
+
         .column {
             display: flex;
             flex-direction: column;
         }
+
         .flex {
             display: flex;
         }
+
         .items-center {
             align-items: center;
         }
+
         .justify-between {
             justify-content: space-between;
         }
+
         .no-wrap {
             flex-wrap: nowrap;
         }
+
         .gap-sm {
             gap: 8px;
         }
+
         .gap {
             gap: 16px;
         }
+
         .relative-position {
             position: relative;
         }
+
         .absolute {
             position: absolute;
         }
+
         .fixed {
             position: fixed;
         }
+
         .fit {
             width: 100% !important;
             height: 100% !important;
         }
+
         .q-space {
             flex: 1;
         }
+
         .ellipsis {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         .rounded-borders {
             border-radius: 4px;
         }
+
         .shadow-1 {
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
         }
+
         .shadow-2 {
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2), 0 3px 1px -2px rgba(0, 0, 0, 0.15);
         }
+
         .q-badge {
             background: #1976d2;
             color: #fff;
@@ -181,9 +237,11 @@
             align-items: center;
             line-height: 1.2;
         }
+
         .q-badge--rounded {
             border-radius: 20px;
         }
+
         .q-badge--floating {
             position: absolute;
             top: -6px;
@@ -191,6 +249,7 @@
             font-size: 10px;
             padding: 1px 5px;
         }
+
         .q-checkbox {
             cursor: pointer;
             display: inline-flex;
@@ -199,6 +258,7 @@
             font-size: 12px;
             color: #e0e0e0;
         }
+
         .q-checkbox__inner {
             width: 20px;
             height: 20px;
@@ -211,18 +271,22 @@
             position: relative;
             flex-shrink: 0;
         }
+
         .q-checkbox__inner--truthy {
             background: #1976d2;
             border-color: #1976d2;
         }
+
         .q-checkbox__inner--truthy .q-checkbox__truthy {
             stroke-dashoffset: 0;
         }
+
         .q-checkbox__inner--falsy .q-checkbox__truthy,
         .q-checkbox__inner--falsy .q-checkbox__indet {
             stroke-dashoffset: 30;
             opacity: 0;
         }
+
         .q-checkbox__truthy {
             fill: none;
             stroke: #fff;
@@ -231,23 +295,28 @@
             stroke-dashoffset: 30;
             transition: stroke-dashoffset .18s cubic-bezier(.4, 0, .6, 1);
         }
+
         .q-checkbox__indet {
             fill: #fff;
             opacity: 0;
             transition: opacity .22s;
         }
+
         .q-checkbox__label {
             cursor: pointer;
         }
+
         .q-checkbox input {
             position: absolute;
             opacity: 0;
             width: 0;
             height: 0;
         }
+
         .q-checkbox--dark .q-checkbox__inner {
             border-color: #888;
         }
+
         .q-checkbox--dark .q-checkbox__inner--truthy {
             border-color: #1976d2;
         }
@@ -265,6 +334,7 @@
             display: flex;
             align-items: center;
         }
+
         .q-toolbar {
             min-height: 50px;
             padding: 0 12px;
@@ -273,6 +343,7 @@
             gap: 8px;
             width: 100%;
         }
+
         .q-toolbar__title {
             font-size: 21px;
             font-weight: 400;
@@ -280,9 +351,11 @@
             padding: 0 8px;
             white-space: nowrap;
         }
+
         .q-toolbar img {
             border-radius: 8px;
         }
+
         .q-badge--warning {
             background: #f2c037;
             color: #000;
@@ -296,10 +369,11 @@
             overflow: hidden;
             padding: 8px 8px 8px 8px;
             background: #0d0d0d;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 10% 50%, rgba(30, 60, 130, 0.25) 0%, transparent 50%),
                 radial-gradient(circle at 90% 50%, rgba(130, 30, 30, 0.2) 0%, transparent 50%);
         }
+
         .main-content {
             flex: 1;
             padding: 12px;
@@ -308,6 +382,7 @@
             height: 100%;
             border-radius: 4px;
         }
+
         .main-content--full {
             width: 100%;
         }
@@ -321,11 +396,13 @@
             transition: all 0.3s ease;
             padding: 0 0 0 0;
         }
+
         .right-panel-wrapper--collapsed {
             width: 0 !important;
             min-width: 0 !important;
             overflow: visible;
         }
+
         .right-panel {
             background: #1e1e1e;
             border-left: 1px solid rgba(255, 255, 255, 0.06);
@@ -341,6 +418,7 @@
             border-radius: 8px;
             margin: 0 0 0 0;
         }
+
         .right-panel::before {
             content: '';
             position: absolute;
@@ -354,6 +432,7 @@
             pointer-events: none;
             z-index: -1;
         }
+
         .right-panel--collapsed {
             width: 0 !important;
             min-width: 0 !important;
@@ -362,6 +441,7 @@
             overflow: visible;
             margin: 0;
         }
+
         .right-panel .q-card {
             background: #1e1e1e;
             display: flex;
@@ -372,6 +452,7 @@
             border-radius: 8px;
             overflow: hidden;
         }
+
         .right-panel--collapsed .q-card {
             display: none;
         }
@@ -396,15 +477,18 @@
             box-shadow: 0 2px 8px rgba(25, 118, 210, 0.4);
             transition: transform 0.3s ease, left 0.3s ease, right 0.3s ease;
         }
+
         .panel-toggle-btn:hover {
             background: #1565c0;
             transform: scale(1.05);
         }
+
         .panel-toggle-btn--collapsed {
             left: auto;
             right: -18px;
             top: 24px;
         }
+
         .panel-toggle-btn--collapsed:hover {
             transform: scale(1.05);
         }
@@ -418,19 +502,23 @@
             border-radius: 0;
             flex-shrink: 0;
         }
+
         .q-tabs--dense .q-tab {
             min-height: 36px;
             padding: 0 12px;
         }
+
         .q-tabs__content {
             display: flex;
             flex: 1;
             overflow: hidden;
             border-radius: inherit;
         }
+
         .q-tabs__content--align-justify .q-tab {
             flex: 1;
         }
+
         .q-tab {
             display: flex;
             align-items: center;
@@ -448,26 +536,32 @@
             user-select: none;
             border-bottom: 2px solid transparent;
         }
+
         .q-tab:hover {
             color: #fff;
         }
+
         .q-tab--active {
             color: #1976d2;
             border-bottom-color: #1976d2;
         }
+
         .q-tab--inactive {
             color: rgba(255, 255, 255, 0.5);
         }
+
         .q-tab__content {
             display: flex;
             align-items: center;
             gap: 6px;
             padding: 4px 0;
         }
+
         .q-tab__label {
             font-size: 14px;
             font-weight: 500;
         }
+
         .q-tab__indicator {
             position: absolute;
             bottom: -2px;
@@ -478,6 +572,7 @@
             width: 100%;
             opacity: 0;
         }
+
         .q-tab--active .q-tab__indicator {
             opacity: 1;
         }
@@ -493,9 +588,11 @@
             position: relative;
             overflow: hidden;
         }
+
         .q-tab-panels--dark {
             background: #1a1a1a;
         }
+
         .q-panel {
             flex: 1;
             padding: 16px;
@@ -504,6 +601,7 @@
             gap: 12px;
             overflow-y: auto;
         }
+
         .q-tab-panel {
             flex: 1;
             display: flex;
@@ -519,6 +617,7 @@
             flex-wrap: wrap;
             align-items: center;
         }
+
         .editor-buttons .q-btn {
             font-size: 12px;
             padding: 4px 8px;
@@ -527,9 +626,11 @@
             background: #1976d2;
             color: #fff;
         }
+
         .editor-buttons .q-btn:hover {
             background: #1565c0;
         }
+
         .editor-buttons .q-btn i {
             font-size: 12px;
         }
@@ -547,12 +648,15 @@
             color: #e0e0e0;
             outline: none;
         }
+
         .basic-editor:focus {
             border-color: #1976d2;
         }
+
         .basic-editor div {
             padding: 2px 0;
         }
+
         .basic-editor div:last-child {
             padding-bottom: 0;
         }
@@ -563,22 +667,28 @@
             border-radius: 3px;
             overflow: hidden;
         }
+
         .q-btn-group .q-btn {
             border-radius: 0;
         }
+
         .q-btn-group .q-btn:first-child {
             border-radius: 3px 0 0 3px;
         }
+
         .q-btn-group .q-btn:last-child {
             border-radius: 0 3px 3px 0;
         }
+
         .q-btn-dropdown--split .q-btn-dropdown__arrow-container {
             border-left: 1px solid rgba(255, 255, 255, 0.15);
             padding: 0 4px;
         }
+
         .q-btn-dropdown__arrow {
             font-size: 14px;
         }
+
         .q-btn-dropdown__arrow-container {
             display: flex;
             align-items: center;
@@ -614,14 +724,17 @@
             flex-shrink: 0;
             min-height: 40px;
         }
+
         .panel-footer a {
             color: #888;
             font-size: 0.85rem;
             text-decoration: none;
         }
+
         .panel-footer a:hover {
             color: #fff;
         }
+
         .panel-footer .version-info {
             display: flex;
             align-items: center;
@@ -629,6 +742,7 @@
             font-size: 0.85rem;
             color: #888;
         }
+
         .panel-footer .new-badge {
             background: #1976d2;
             color: #fff;
@@ -638,6 +752,7 @@
             text-decoration: none;
             line-height: 22px;
         }
+
         .panel-footer .new-badge:hover {
             background: #1565c0;
         }
@@ -648,23 +763,29 @@
             border-bottom-color: rgba(255, 255, 255, 0.05) !important;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6) !important;
         }
+
         .q-header--fullscreen .q-toolbar {
             min-height: 42px;
         }
+
         .q-header--fullscreen .q-toolbar__title {
             font-size: 17px;
         }
+
         .q-header--fullscreen .q-btn {
             padding: 2px 10px;
             min-height: 30px;
             font-size: 0.85rem;
         }
+
         .q-header--fullscreen .hide-in-fullscreen {
             display: none !important;
         }
+
         .q-header--fullscreen .show-in-fullscreen {
             display: flex !important;
         }
+
         .show-in-fullscreen {
             display: none;
         }
@@ -673,9 +794,11 @@
         .hamburger {
             display: none;
         }
+
         .desktop-only {
             display: flex;
         }
+
         .mobile-only {
             display: none;
         }
@@ -690,6 +813,7 @@
             z-index: 999;
             display: none;
         }
+
         .panel-overlay--open {
             display: block;
         }
@@ -698,12 +822,15 @@
             .hamburger {
                 display: inline-flex;
             }
+
             .desktop-only {
                 display: none !important;
             }
+
             .mobile-only {
                 display: flex !important;
             }
+
             .right-panel {
                 position: fixed;
                 top: 58px;
@@ -718,21 +845,27 @@
                 border-radius: 8px;
                 margin: 0 8px 8px 0;
             }
+
             .right-panel--mobile-open {
                 right: 8px;
             }
+
             .right-panel .q-card {
                 min-width: 0;
             }
+
             .panel-toggle-btn {
                 display: none !important;
             }
+
             .right-panel-wrapper {
                 width: auto !important;
             }
+
             .main-content--with-panel {
                 width: 100%;
             }
+
             .main-layout {
                 padding: 0;
             }
@@ -742,9 +875,11 @@
             .q-toolbar {
                 padding: 0 8px;
             }
+
             .q-toolbar__title {
                 font-size: 17px;
             }
+
             .right-panel {
                 width: 100%;
                 max-width: 100%;
@@ -754,13 +889,16 @@
                 margin: 0;
                 border-radius: 8px 0 0 8px;
             }
+
             .right-panel--mobile-open {
                 right: 0;
             }
+
             .q-tab {
                 padding: 0 8px;
                 font-size: 13px;
             }
+
             .editor-buttons .q-btn {
                 font-size: 11px;
                 padding: 3px 6px;
@@ -773,13 +911,16 @@
             width: 6px;
             height: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: transparent;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #444;
             border-radius: 3px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
@@ -792,13 +933,16 @@
         #canvas-wrapper {
             background: transparent !important;
         }
+
         #canvas-wrapper canvas {
             background: transparent !important;
             box-shadow: none !important;
         }
+
         .workspace {
             background: transparent;
         }
+
         #wheel-container {
             background: transparent !important;
         }
@@ -816,10 +960,12 @@
             pointer-events: none;
             transition: opacity 0.2s ease;
         }
+
         .winner-modal-overlay.active {
             opacity: 1;
             pointer-events: all;
         }
+
         .winner-modal-box {
             background-color: #2f2f2f;
             border-radius: 4px;
@@ -831,9 +977,11 @@
             transform: scale(0.2);
             transition: transform 0.2s ease-in-out;
         }
+
         .winner-modal-overlay.active .winner-modal-box {
             transform: scale(1);
         }
+
         .winner-modal-header {
             color: white;
             padding: 16px;
@@ -842,16 +990,19 @@
             text-align: left;
             transition: background-color 0.5s ease;
         }
+
         .winner-modal-body {
             padding: 20px 20px;
             text-align: center;
             color: white;
         }
+
         .winner-text {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 30px;
         }
+
         .winner-modal-footer {
             padding: 10px 20px;
             display: flex;
@@ -859,6 +1010,7 @@
             gap: 10px;
             background-color: #2f2f2f;
         }
+
         .winner-modal-footer .close-btn {
             background-color: transparent;
             color: #ccc;
@@ -871,10 +1023,12 @@
             font-weight: bold;
             transition: background-color 0.2s, color 0.2s;
         }
+
         .winner-modal-footer .close-btn:hover {
             background-color: transparent;
             color: white;
         }
+
         .winner-modal-footer .remove-btn {
             background-color: #3369e8;
             color: white;
@@ -887,6 +1041,7 @@
             font-weight: bold;
             transition: background-color 0.2s;
         }
+
         .winner-modal-footer .remove-btn:hover {
             background-color: #2855c4;
         }
@@ -910,6 +1065,7 @@
             accent-color: #3369e8;
             cursor: pointer;
         }
+
         .custom-range {
             -webkit-appearance: none;
             width: 100%;
@@ -918,6 +1074,7 @@
             background: #3c4043;
             outline: none;
         }
+
         .custom-range::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -928,9 +1085,11 @@
             cursor: pointer;
             transition: transform 0.1s;
         }
+
         .custom-range::-webkit-slider-thumb:hover {
             transform: scale(1.2);
         }
+
         .slider-ticks {
             display: flex;
             justify-content: space-between;
@@ -939,52 +1098,81 @@
             margin-top: 4px;
             padding: 0 4px;
         }
+
         .wheel-overlay {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
             pointer-events: none;
             z-index: 20;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.95), -1px -1px 2px rgba(0,0,0,0.6);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.95), -1px -1px 2px rgba(0, 0, 0, 0.6);
             font-family: 'Quicksand', sans-serif;
             transition: opacity 0.3s ease;
         }
+
         .modal-overlay {
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0, 0, 0, 0.6);
             z-index: 3000;
         }
     </style>
 </head>
+
 <body>
 
     <!-- ===== HEADER ===== -->
     <header class="q-header" id="mainHeader">
         <div class="q-toolbar">
-            <img src="https://wheelofnames.com/images/logo-dark-background-38.png" alt="logo" width="38" height="38" style="border-radius:8px; flex-shrink:0;">
+            <img src="https://wheelofnames.com/images/logo-dark-background-38.png" alt="logo" width="38" height="38"
+                style="border-radius:8px; flex-shrink:0;">
             <span class="q-toolbar__title ellipsis" style="flex-shrink:1; min-width:0;">wheelofnames.com</span>
             <span class="q-badge q-badge--warning hide-in-fullscreen" style="flex-shrink:0;">PREMIUM</span>
             <div class="q-space"></div>
 
             <!-- Desktop buttons -->
             <div class="row items-center no-wrap gap-sm desktop-only hide-in-fullscreen">
-                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="openCustomizeModal()"><i class="fas fa-palette"></i> Customize</button>
-                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="createNewWheel()"><i class="fas fa-file"></i> New</button>
-                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="alert('Demo feature')"><i class="fas fa-folder-open"></i> Open</button>
-                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="alert('Demo feature')"><i class="fas fa-save"></i> Save</button>
-                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="alert('Demo feature')"><i class="fas fa-share-alt"></i> Share</button>
-                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="alert('Demo feature')"><i class="fas fa-search"></i> Gallery</button>
-                <button class="q-btn q-btn--flat q-btn--round" onclick="toggleFullscreen()" aria-label="Fullscreen" id="fullscreenBtn"><i class="fas fa-expand"></i></button>
+                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="openCustomizeModal()"><i
+                        class="fas fa-palette"></i> Customize</button>
+                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="createNewWheel()"><i class="fas fa-file"></i>
+                    New</button>
+                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="alert('Demo feature')"><i
+                        class="fas fa-folder-open"></i> Open</button>
+                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="alert('Demo feature')"><i
+                        class="fas fa-save"></i> Save</button>
+                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="alert('Demo feature')"><i
+                        class="fas fa-share-alt"></i> Share</button>
+                <button class="q-btn q-btn--flat q-btn--no-caps" onclick="alert('Demo feature')"><i
+                        class="fas fa-search"></i> Gallery</button>
+                <button class="q-btn q-btn--flat q-btn--round" onclick="toggleFullscreen()" aria-label="Fullscreen"
+                    id="fullscreenBtn"><i class="fas fa-expand"></i></button>
 
                 <div style="position:relative; display:inline-block;">
-                    <button class="q-btn q-btn--flat q-btn--no-caps" onclick="toggleMoreMenu()"><i class="fas fa-ellipsis-v"></i></button>
-                    <div class="q-menu" id="moreMenu" style="display:none; position:absolute; right:0; top:100%; background:#2a2a2a; border-radius:4px; min-width:200px; box-shadow:0 4px 16px rgba(0,0,0,0.5); padding:8px 0; z-index:3000;">
-                        <div class="q-item" style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;"><i class="fas fa-comment" style="width:24px;"></i> Feedback</div>
-                        <div class="q-item" style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;"><i class="fas fa-question-circle" style="width:24px;"></i> FAQ</div>
+                    <button class="q-btn q-btn--flat q-btn--no-caps" onclick="toggleMoreMenu()"><i
+                            class="fas fa-ellipsis-v"></i></button>
+                    <div class="q-menu" id="moreMenu"
+                        style="display:none; position:absolute; right:0; top:100%; background:#2a2a2a; border-radius:4px; min-width:200px; box-shadow:0 4px 16px rgba(0,0,0,0.5); padding:8px 0; z-index:3000;">
+                        <div class="q-item"
+                            style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;">
+                            <i class="fas fa-comment" style="width:24px;"></i> Feedback
+                        </div>
+                        <div class="q-item"
+                            style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;">
+                            <i class="fas fa-question-circle" style="width:24px;"></i> FAQ
+                        </div>
                         <div style="height:1px; background:rgba(255,255,255,0.06); margin:4px 12px;"></div>
-                        <div class="q-item" style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;"><i class="fas fa-file-arrow-up" style="width:24px;"></i> Import Spreadsheet</div>
-                        <div class="q-item" style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;"><i class="fas fa-user-alt" style="width:24px;"></i> My account</div>
-                        <div class="q-item" style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;"><i class="fas fa-cog" style="width:24px;"></i> Preferences</div>
+                        <div class="q-item"
+                            style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;">
+                            <i class="fas fa-file-arrow-up" style="width:24px;"></i> Import Spreadsheet
+                        </div>
+                        <div class="q-item"
+                            style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;">
+                            <i class="fas fa-user-alt" style="width:24px;"></i> My account
+                        </div>
+                        <div class="q-item"
+                            style="padding:8px 16px; display:flex; align-items:center; gap:12px; color:#c0c0c0; cursor:pointer;">
+                            <i class="fas fa-cog" style="width:24px;"></i> Preferences
+                        </div>
                     </div>
                 </div>
 
@@ -994,7 +1182,8 @@
             <!-- Fullscreen buttons -->
             <div class="row items-center no-wrap gap-sm show-in-fullscreen">
                 <button class="q-btn q-btn--flat q-btn--round"><i class="fas fa-folder-open"></i></button>
-                <button class="q-btn q-btn--flat q-btn--round" onclick="toggleFullscreen()"><i class="fas fa-compress"></i></button>
+                <button class="q-btn q-btn--flat q-btn--round" onclick="toggleFullscreen()"><i
+                        class="fas fa-compress"></i></button>
             </div>
 
             <!-- Mobile hamburger -->
@@ -1009,13 +1198,20 @@
 
         <!-- ===== MAIN CONTENT AREA (wheel) ===== -->
         <div class="main-content" id="mainContent">
-            <div id="wheel-container" class="flex-1 flex items-center justify-center relative w-full h-full p-4 md:p-8" style="background:transparent;">
+            <div id="wheel-container" class="flex-1 flex items-center justify-center relative w-full h-full p-4 md:p-8"
+                style="background:transparent;">
                 <div class="relative cursor-pointer" id="canvas-wrapper" onclick="startSpin()">
                     <canvas id="wheel" width="800" height="800" class="max-w-full max-h-full rounded-full"></canvas>
                     <!-- Overlay instructions -->
-                    <div id="wheel-overlay" class="wheel-overlay flex flex-col items-center justify-center h-full w-full" style="opacity:0;">
-                        <div class="text-3xl md:text-5xl text-white mb-[15%] font-extrabold tracking-wide drop-shadow-lg">Click to spin</div>
-                        <div class="text-lg md:text-xl text-gray-300 mt-[10%] tracking-wide font-semibold drop-shadow-md">or press ctrl+enter</div>
+                    <div id="wheel-overlay"
+                        class="wheel-overlay flex flex-col items-center justify-center h-full w-full"
+                        style="opacity:0;">
+                        <div
+                            class="text-3xl md:text-5xl text-white mb-[15%] font-extrabold tracking-wide drop-shadow-lg">
+                            Click to spin</div>
+                        <div
+                            class="text-lg md:text-xl text-gray-300 mt-[10%] tracking-wide font-semibold drop-shadow-md">
+                            or press ctrl+enter</div>
                     </div>
                 </div>
             </div>
@@ -1035,17 +1231,21 @@
                     <!-- TABS -->
                     <div class="q-tabs q-tabs--dense" role="tablist">
                         <div class="q-tabs__content q-tabs__content--align-justify">
-                            <div class="q-tab q-tab--active" role="tab" aria-selected="true" onclick="switchTab('entries')">
+                            <div class="q-tab q-tab--active" role="tab" aria-selected="true"
+                                onclick="switchTab('entries')">
                                 <div class="q-tab__content">
                                     <span class="q-tab__label">Entries</span>
-                                    <span class="q-badge bg-grey-7 q-badge--rounded" style="margin-left:6px;" id="entryBadge">6</span>
+                                    <span class="q-badge bg-grey-7 q-badge--rounded" style="margin-left:6px;"
+                                        id="entryBadge">6</span>
                                 </div>
                                 <div class="q-tab__indicator"></div>
                             </div>
-                            <div class="q-tab q-tab--inactive" role="tab" aria-selected="false" onclick="switchTab('results')">
+                            <div class="q-tab q-tab--inactive" role="tab" aria-selected="false"
+                                onclick="switchTab('results')">
                                 <div class="q-tab__content">
                                     <span class="q-tab__label">Results</span>
-                                    <span class="q-badge bg-grey-7 q-badge--rounded" style="margin-left:6px;" id="resultBadge">0</span>
+                                    <span class="q-badge bg-grey-7 q-badge--rounded" style="margin-left:6px;"
+                                        id="resultBadge">0</span>
                                 </div>
                                 <div class="q-tab__indicator"></div>
                             </div>
@@ -1053,18 +1253,25 @@
                     </div>
 
                     <!-- TAB PANELS -->
-                    <div class="q-tab-panels q-tab-panels--dark shadow-1 rounded-borders flex-1" style="min-height:200px;">
+                    <div class="q-tab-panels q-tab-panels--dark shadow-1 rounded-borders flex-1"
+                        style="min-height:200px;">
                         <!-- Entries Panel -->
                         <div class="q-panel q-tab-panel" id="panelEntries">
                             <div class="editor-buttons">
-                                <button class="q-btn q-btn--unelevated bg-primary text-white q-btn--no-caps q-btn--dense" onclick="shuffleEntries()" style="font-size:12px; padding:4px 8px;">
+                                <button
+                                    class="q-btn q-btn--unelevated bg-primary text-white q-btn--no-caps q-btn--dense"
+                                    onclick="shuffleEntries()" style="font-size:12px; padding:4px 8px;">
                                     <i class="fas fa-random on-left"></i> Shuffle
                                 </button>
-                                <button class="q-btn q-btn--unelevated bg-primary text-white q-btn--no-caps q-btn--dense" onclick="sortEntries()" style="font-size:12px; padding:4px 8px;">
+                                <button
+                                    class="q-btn q-btn--unelevated bg-primary text-white q-btn--no-caps q-btn--dense"
+                                    onclick="sortEntries()" style="font-size:12px; padding:4px 8px;">
                                     <i class="fas fa-sort-alpha-up on-left"></i> Sort
                                 </button>
                                 <div style="position:relative; display:inline-block;">
-                                    <button class="q-btn q-btn--unelevated bg-primary text-white q-btn--no-caps q-btn--dense q-btn-dropdown q-btn-dropdown--simple" onclick="alert('Demo feature')" style="font-size:12px; padding:4px 8px;">
+                                    <button
+                                        class="q-btn q-btn--unelevated bg-primary text-white q-btn--no-caps q-btn--dense q-btn-dropdown q-btn-dropdown--simple"
+                                        onclick="alert('Demo feature')" style="font-size:12px; padding:4px 8px;">
                                         <i class="fas fa-image on-left"></i> Add image
                                         <i class="fas fa-caret-down" style="margin-left:4px; font-size:11px;"></i>
                                     </button>
@@ -1084,7 +1291,8 @@
                                 </label>
                             </div>
 
-                            <div class="basic-editor" id="names-editor" contenteditable="true" role="textbox" spellcheck="false">
+                            <div class="basic-editor" id="names-editor" contenteditable="true" role="textbox"
+                                spellcheck="false">
                                 <div>Ali</div>
                                 <div>Beatriz</div>
                                 <div>Charles</div>
@@ -1095,10 +1303,13 @@
 
                             <div style="position:relative;">
                                 <div class="q-btn-group q-btn-group--unelevated">
-                                    <button class="q-btn q-btn--unelevated bg-primary text-white q-btn--no-caps" onclick="alert('Demo feature')" style="padding:8px;">
+                                    <button class="q-btn q-btn--unelevated bg-primary text-white q-btn--no-caps"
+                                        onclick="alert('Demo feature')" style="padding:8px;">
                                         <i class="fas fa-plus on-left"></i> Add wheel
                                     </button>
-                                    <button class="q-btn q-btn--unelevated bg-primary text-white q-btn-dropdown__arrow-container" style="padding:8px;">
+                                    <button
+                                        class="q-btn q-btn--unelevated bg-primary text-white q-btn-dropdown__arrow-container"
+                                        style="padding:8px;">
                                         <i class="fas fa-caret-down q-btn-dropdown__arrow"></i>
                                     </button>
                                 </div>
@@ -1109,17 +1320,24 @@
                         <!-- Results Panel -->
                         <div class="q-panel q-tab-panel" id="panelResults" style="display:none;">
                             <div class="editor-buttons">
-                                <button class="q-btn q-btn--unelevated" style="background:#333; color:#e0e0e0; font-size:12px; padding:4px 8px;" onclick="alert('Demo feature')">
+                                <button class="q-btn q-btn--unelevated"
+                                    style="background:#333; color:#e0e0e0; font-size:12px; padding:4px 8px;"
+                                    onclick="alert('Demo feature')">
                                     <i class="fas fa-sort-alpha-up on-left"></i> Sort
                                 </button>
-                                <button class="q-btn q-btn--unelevated" style="background:#333; color:#e0e0e0; font-size:12px; padding:4px 8px;" onclick="clearResults()">
+                                <button class="q-btn q-btn--unelevated"
+                                    style="background:#333; color:#e0e0e0; font-size:12px; padding:4px 8px;"
+                                    onclick="clearResults()">
                                     <i class="fas fa-times on-left"></i> Clear
                                 </button>
-                                <button class="q-btn q-btn--unelevated" style="background:#333; color:#e0e0e0; font-size:12px; padding:4px 8px;" onclick="alert('Demo feature')">
+                                <button class="q-btn q-btn--unelevated"
+                                    style="background:#333; color:#e0e0e0; font-size:12px; padding:4px 8px;"
+                                    onclick="alert('Demo feature')">
                                     <i class="fas fa-file-arrow-down on-left"></i> Export
                                 </button>
                             </div>
-                            <div id="results-list" class="basic-editor" style="min-height:150px; color:#888; display:flex; align-items:center; justify-content:center; font-size:16px; flex-direction:column; gap:8px;">
+                            <div id="results-list" class="basic-editor"
+                                style="min-height:150px; color:#888; display:flex; align-items:center; justify-content:center; font-size:16px; flex-direction:column; gap:8px;">
                                 <span>No results yet</span>
                             </div>
                         </div>
@@ -1160,15 +1378,24 @@
 
     <!-- ===== CUSTOMIZE MODAL ===== -->
     <div id="customize-modal" class="fixed inset-0 modal-overlay flex items-center justify-center hidden">
-        <div class="bg-[#202124] rounded-xl w-full max-w-[680px] h-[85vh] flex flex-col shadow-2xl border border-[#3c4043] modal-content overflow-hidden">
+        <div
+            class="bg-[#202124] rounded-xl w-full max-w-[680px] h-[85vh] flex flex-col shadow-2xl border border-[#3c4043] modal-content overflow-hidden">
             <div class="flex justify-between items-center p-4 border-b border-[#3c4043] bg-[#1e1f21] shrink-0">
-                <h3 class="text-lg font-bold text-white"><i class="fas fa-palette mr-2 text-[#8ab4f8]"></i> Customize Wheel</h3>
-                <button onclick="closeCustomizeModal()" class="text-gray-400 hover:text-white transition"><i class="fas fa-times text-xl"></i></button>
+                <h3 class="text-lg font-bold text-white"><i class="fas fa-palette mr-2 text-[#8ab4f8]"></i> Customize
+                    Wheel</h3>
+                <button onclick="closeCustomizeModal()" class="text-gray-400 hover:text-white transition"><i
+                        class="fas fa-times text-xl"></i></button>
             </div>
             <div class="flex border-b border-[#3c4043] px-4 bg-[#161719] shrink-0 text-sm">
-                <div id="cust-tab-during" class="py-3 px-4 cursor-pointer font-semibold border-b-2 text-[#8ab4f8] border-[#3369e8]" onclick="switchCustomizeTab('during')">During spin</div>
-                <div id="cust-tab-after" class="py-3 px-4 cursor-pointer font-semibold border-b-2 text-gray-400 border-transparent hover:text-white" onclick="switchCustomizeTab('after')">After spin</div>
-                <div id="cust-tab-appearance" class="py-3 px-4 cursor-pointer font-semibold border-b-2 text-gray-400 border-transparent hover:text-white" onclick="switchCustomizeTab('appearance')">Appearance</div>
+                <div id="cust-tab-during"
+                    class="py-3 px-4 cursor-pointer font-semibold border-b-2 text-[#8ab4f8] border-[#3369e8]"
+                    onclick="switchCustomizeTab('during')">During spin</div>
+                <div id="cust-tab-after"
+                    class="py-3 px-4 cursor-pointer font-semibold border-b-2 text-gray-400 border-transparent hover:text-white"
+                    onclick="switchCustomizeTab('after')">After spin</div>
+                <div id="cust-tab-appearance"
+                    class="py-3 px-4 cursor-pointer font-semibold border-b-2 text-gray-400 border-transparent hover:text-white"
+                    onclick="switchCustomizeTab('appearance')">Appearance</div>
             </div>
             <div class="flex-1 p-6 overflow-y-auto text-sm text-gray-300 flex flex-col gap-6">
                 <!-- DURING -->
@@ -1176,57 +1403,125 @@
                     <div>
                         <label class="block text-white font-medium mb-2">Sound</label>
                         <div class="flex items-center gap-3">
-                            <select id="config-sound-select" class="flex-1 bg-[#121212] border border-[#3c4043] rounded p-2 text-white outline-none">
+                            <select id="config-sound-select"
+                                class="flex-1 bg-[#121212] border border-[#3c4043] rounded p-2 text-white outline-none">
                                 <option value="tick">Ticking sound</option>
                                 <option value="chime">Chime melody</option>
                                 <option value="synth">Synth pop</option>
                                 <option value="none">No Sound</option>
                             </select>
-                            <button onclick="previewAudio()" class="w-10 h-10 bg-[#2d2e30] border border-[#3c4043] rounded-full flex items-center justify-center text-green-500 hover:bg-[#3c4043] transition"><i class="fas fa-play text-xs"></i></button>
-                            <button onclick="stopPreviewAudio()" class="w-10 h-10 bg-[#2d2e30] border border-[#3c4043] rounded-full flex items-center justify-center text-red-500 hover:bg-[#3c4043] transition"><i class="fas fa-stop text-xs"></i></button>
+                            <button onclick="previewAudio()"
+                                class="w-10 h-10 bg-[#2d2e30] border border-[#3c4043] rounded-full flex items-center justify-center text-green-500 hover:bg-[#3c4043] transition"><i
+                                    class="fas fa-play text-xs"></i></button>
+                            <button onclick="stopPreviewAudio()"
+                                class="w-10 h-10 bg-[#2d2e30] border border-[#3c4043] rounded-full flex items-center justify-center text-red-500 hover:bg-[#3c4043] transition"><i
+                                    class="fas fa-stop text-xs"></i></button>
                         </div>
                     </div>
                     <div>
-                        <div class="flex justify-between items-center mb-1"><span class="text-white font-medium">Volume</span><span id="volume-label-val" class="text-xs text-gray-400">50%</span></div>
-                        <input type="range" min="0" max="100" value="50" class="custom-range" id="config-volume-slider" oninput="updateVolumeLabel(this.value)">
-                        <div class="slider-ticks text-[10px]"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+                        <div class="flex justify-between items-center mb-1"><span
+                                class="text-white font-medium">Volume</span><span id="volume-label-val"
+                                class="text-xs text-gray-400">50%</span></div>
+                        <input type="range" min="0" max="100" value="50" class="custom-range" id="config-volume-slider"
+                            oninput="updateVolumeLabel(this.value)">
+                        <div class="slider-ticks text-[10px]">
+                            <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+                        </div>
                     </div>
                     <div class="flex flex-wrap gap-x-6 gap-y-3 pt-2">
-                        <div class="flex items-center gap-2"><input type="checkbox" id="config-display-duplicates" class="config-checkbox" checked><label for="config-display-duplicates" class="cursor-pointer select-none text-white/90">Display duplicates</label></div>
-                        <div class="flex items-center gap-2"><input type="checkbox" id="config-show-title" class="config-checkbox" checked><label for="config-show-title" class="cursor-pointer select-none text-white/90">Show title</label></div>
+                        <div class="flex items-center gap-2"><input type="checkbox" id="config-display-duplicates"
+                                class="config-checkbox" checked><label for="config-display-duplicates"
+                                class="cursor-pointer select-none text-white/90">Display duplicates</label></div>
+                        <div class="flex items-center gap-2"><input type="checkbox" id="config-show-title"
+                                class="config-checkbox" checked><label for="config-show-title"
+                                class="cursor-pointer select-none text-white/90">Show title</label></div>
                     </div>
                     <div class="pt-2">
-                        <div class="flex justify-between items-center mb-1"><span class="text-white font-medium">Spin time (seconds)</span><span id="spintime-label-val" class="text-xs text-gray-400">10s</span></div>
-                        <input type="range" min="1" max="60" value="10" class="custom-range" id="config-spintime-slider" oninput="updateSpinTimeLabel(this.value)">
-                        <div class="slider-ticks text-[10px]"><span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span></div>
+                        <div class="flex justify-between items-center mb-1"><span class="text-white font-medium">Spin
+                                time (seconds)</span><span id="spintime-label-val"
+                                class="text-xs text-gray-400">10s</span></div>
+                        <input type="range" min="1" max="60" value="10" class="custom-range" id="config-spintime-slider"
+                            oninput="updateSpinTimeLabel(this.value)">
+                        <div class="slider-ticks text-[10px]">
+                            <span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span>
+                        </div>
                     </div>
                     <div class="pt-2">
-                        <div class="flex justify-between items-center mb-1"><span class="text-white font-medium">Spin speed</span><span id="spinspeed-label-val" class="text-xs text-gray-400">Normal</span></div>
-                        <input type="range" min="1" max="5" value="3" class="custom-range" id="config-spinspeed-slider" oninput="updateSpinSpeedLabel(this.value)">
-                        <div class="slider-ticks text-[10px]"><span>Slowest</span><span>Slow</span><span>Normal</span><span>Fast</span><span>Fastest</span></div>
+                        <div class="flex justify-between items-center mb-1"><span class="text-white font-medium">Spin
+                                speed</span><span id="spinspeed-label-val" class="text-xs text-gray-400">Normal</span>
+                        </div>
+                        <input type="range" min="1" max="5" value="3" class="custom-range" id="config-spinspeed-slider"
+                            oninput="updateSpinSpeedLabel(this.value)">
+                        <div class="slider-ticks text-[10px]">
+                            <span>Slowest</span><span>Slow</span><span>Normal</span><span>Fast</span><span>Fastest</span>
+                        </div>
                     </div>
                     <div class="pt-2">
-                        <div class="flex justify-between items-center mb-1"><span class="text-white font-medium">Max number of names visible on the wheel</span><span id="maxnames-label-val" class="text-xs text-gray-400">100</span></div>
-                        <input type="range" min="10" max="500" value="100" step="5" class="custom-range" id="config-maxnames-slider" oninput="updateMaxNamesLabel(this.value)">
-                        <div class="slider-ticks text-[10px]"><span>10</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span></div>
+                        <div class="flex justify-between items-center mb-1"><span class="text-white font-medium">Max
+                                number of names visible on the wheel</span><span id="maxnames-label-val"
+                                class="text-xs text-gray-400">100</span></div>
+                        <input type="range" min="10" max="500" value="100" step="5" class="custom-range"
+                            id="config-maxnames-slider" oninput="updateMaxNamesLabel(this.value)">
+                        <div class="slider-ticks text-[10px]">
+                            <span>10</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span>
+                        </div>
                     </div>
                 </div>
                 <!-- AFTER -->
                 <div id="cust-panel-after" class="space-y-6 hidden">
-                    <div class="bg-[#121212] p-4 rounded-lg border border-[#3c4043]"><div class="flex items-center justify-between"><div><span class="block text-white font-semibold">Animate winner name</span><span class="text-xs text-gray-500">Enable popping animation once the rotation has concluded.</span></div><input type="checkbox" id="config-animate-winner" class="config-checkbox" checked></div></div>
-                    <div class="bg-[#121212] p-4 rounded-lg border border-[#3c4043]"><div class="flex items-center justify-between"><div><span class="block text-white font-semibold">Trigger Confetti</span><span class="text-xs text-gray-500">Launches colorful explosions behind the winning dialog.</span></div><input type="checkbox" id="config-trigger-confetti" class="config-checkbox" checked></div></div>
-                    <div><label class="block text-white font-medium mb-2">Winning sound</label><select id="config-winner-sound" class="w-full bg-[#121212] border border-[#3c4043] rounded p-2 text-white outline-none"><option value="fanfare">Fanfare celebration</option><option value="applause">Applause</option><option value="none">Silence</option></select></div>
+                    <div class="bg-[#121212] p-4 rounded-lg border border-[#3c4043]">
+                        <div class="flex items-center justify-between">
+                            <div><span class="block text-white font-semibold">Animate winner name</span><span
+                                    class="text-xs text-gray-500">Enable popping animation once the rotation has
+                                    concluded.</span></div><input type="checkbox" id="config-animate-winner"
+                                class="config-checkbox" checked>
+                        </div>
+                    </div>
+                    <div class="bg-[#121212] p-4 rounded-lg border border-[#3c4043]">
+                        <div class="flex items-center justify-between">
+                            <div><span class="block text-white font-semibold">Trigger Confetti</span><span
+                                    class="text-xs text-gray-500">Launches colorful explosions behind the winning
+                                    dialog.</span></div><input type="checkbox" id="config-trigger-confetti"
+                                class="config-checkbox" checked>
+                        </div>
+                    </div>
+                    <div><label class="block text-white font-medium mb-2">Winning sound</label><select
+                            id="config-winner-sound"
+                            class="w-full bg-[#121212] border border-[#3c4043] rounded p-2 text-white outline-none">
+                            <option value="fanfare">Fanfare celebration</option>
+                            <option value="applause">Applause</option>
+                            <option value="none">Silence</option>
+                        </select></div>
                 </div>
                 <!-- APPEARANCE -->
                 <div id="cust-panel-appearance" class="space-y-6 hidden">
-                    <div><label class="block text-white font-medium mb-2">Wheel Color Palette Theme</label><select id="config-color-theme" class="w-full bg-[#121212] border border-[#3c4043] rounded p-2 text-white outline-none" onchange="changeColorTheme(this.value)"><option value="classic">Classic Google (Red, Blue, Yellow, Green, Purple, Orange)</option><option value="neon">Cyber Neon Style</option><option value="pastel">Soft Pastels</option><option value="monochrome">Dark Slate & Silver</option></select></div>
-                    <div class="bg-[#121212] p-4 rounded-lg border border-[#3c4043]"><div class="flex items-center justify-between"><div><span class="block text-white font-semibold">Draw concentric rings</span><span class="text-xs text-gray-500">Gives the wheel an enhanced layered outline.</span></div><input type="checkbox" id="config-draw-rings" class="config-checkbox" checked></div></div>
-                    <div><label class="block text-white font-medium mb-2">Custom Banner Overlay Text</label><input type="text" id="config-overlay-text" value="Click to spin" class="w-full bg-[#121212] border border-[#3c4043] rounded p-2 text-white outline-none" oninput="updateOverlayText(this.value)"></div>
+                    <div><label class="block text-white font-medium mb-2">Wheel Color Palette Theme</label><select
+                            id="config-color-theme"
+                            class="w-full bg-[#121212] border border-[#3c4043] rounded p-2 text-white outline-none"
+                            onchange="changeColorTheme(this.value)">
+                            <option value="classic">Classic Google (Red, Blue, Yellow, Green, Purple, Orange)</option>
+                            <option value="neon">Cyber Neon Style</option>
+                            <option value="pastel">Soft Pastels</option>
+                            <option value="monochrome">Dark Slate & Silver</option>
+                        </select></div>
+                    <div class="bg-[#121212] p-4 rounded-lg border border-[#3c4043]">
+                        <div class="flex items-center justify-between">
+                            <div><span class="block text-white font-semibold">Draw concentric rings</span><span
+                                    class="text-xs text-gray-500">Gives the wheel an enhanced layered outline.</span>
+                            </div><input type="checkbox" id="config-draw-rings" class="config-checkbox" checked>
+                        </div>
+                    </div>
+                    <div><label class="block text-white font-medium mb-2">Custom Banner Overlay Text</label><input
+                            type="text" id="config-overlay-text" value="Click to spin"
+                            class="w-full bg-[#121212] border border-[#3c4043] rounded p-2 text-white outline-none"
+                            oninput="updateOverlayText(this.value)"></div>
                 </div>
             </div>
             <div class="p-4 border-t border-[#3c4043] flex justify-end gap-3 bg-[#121212] rounded-b-xl shrink-0">
-                <button onclick="closeCustomizeModal()" class="px-4 py-2 text-gray-300 hover:text-white transition text-sm">Cancel</button>
-                <button onclick="saveAndApplyCustomizations()" class="px-6 py-2 bg-[#3369e8] hover:bg-[#3b76e2] text-white font-bold rounded shadow-md transition text-sm">OK</button>
+                <button onclick="closeCustomizeModal()"
+                    class="px-4 py-2 text-gray-300 hover:text-white transition text-sm">Cancel</button>
+                <button onclick="saveAndApplyCustomizations()"
+                    class="px-6 py-2 bg-[#3369e8] hover:bg-[#3b76e2] text-white font-bold rounded shadow-md transition text-sm">OK</button>
             </div>
         </div>
     </div>
@@ -1266,7 +1561,7 @@
             panelOverlay.classList.remove('panel-overlay--open');
             document.body.style.overflow = '';
         }
-        hamburgerBtn.addEventListener('click', function(e) {
+        hamburgerBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             if (panel.classList.contains('right-panel--mobile-open')) closeMobilePanel();
             else openMobilePanel();
@@ -1302,9 +1597,9 @@
         const fsBtn = document.getElementById('fullscreenBtn');
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().then(() => { isFullscreen = true; updateFullscreenUI(); }).catch(() => {});
+                document.documentElement.requestFullscreen().then(() => { isFullscreen = true; updateFullscreenUI(); }).catch(() => { });
             } else {
-                document.exitFullscreen().then(() => { isFullscreen = false; updateFullscreenUI(); }).catch(() => {});
+                document.exitFullscreen().then(() => { isFullscreen = false; updateFullscreenUI(); }).catch(() => { });
             }
         }
         function updateFullscreenUI() {
@@ -1329,7 +1624,7 @@
             moreMenuOpen = !moreMenuOpen;
             menu.style.display = moreMenuOpen ? 'block' : 'none';
         }
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             const menu = document.getElementById('moreMenu');
             const btn = e.target.closest('.q-btn');
             if (menu && !menu.contains(e.target) && !btn?.querySelector('.fa-ellipsis-v')) {
@@ -1337,10 +1632,10 @@
                 moreMenuOpen = false;
             }
         });
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') { closeMobilePanel(); if (moreMenuOpen) { document.getElementById('moreMenu').style.display = 'none'; moreMenuOpen = false; } }
         });
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (window.innerWidth > 900 && panel.classList.contains('right-panel--mobile-open')) closeMobilePanel();
         });
 
@@ -1356,12 +1651,12 @@
         function initTickSound() {
             try {
                 // Check if the URL is valid and not empty
-                if (!TICK_SOUND_URL || TICK_SOUND_URL === '' || TICK_SOUND_URL === '{% static 'sounds/Tick-DeepFrozenApps-397275646.mp3' %}') {
+                if (!TICK_SOUND_URL || TICK_SOUND_URL === '' || TICK_SOUND_URL === '{% static 'sounds / Tick - DeepFrozenApps - 397275646.mp3' %}') {
                     console.warn('Tick sound URL is empty or invalid. Using oscillator fallback.');
                     tickAudio = null;
                     return;
                 }
-                
+
                 // Check if the file exists by trying to fetch it
                 fetch(TICK_SOUND_URL, { method: 'HEAD' })
                     .then(response => {
@@ -1389,13 +1684,13 @@
         function playTickSound() {
             if (!tickSoundEnabled) return;
             if (configState.sound === 'none') return;
-            
+
             try {
                 if (tickAudio) {
                     // Clone the audio to allow overlapping ticks
                     const sound = tickAudio.cloneNode();
                     sound.volume = tickSoundVolume / 100;
-                    sound.play().catch(() => {});
+                    sound.play().catch(() => { });
                 } else {
                     // Fallback: Web Audio oscillator
                     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1438,11 +1733,11 @@
                 clearInterval(confettiInterval);
                 confettiInterval = null;
             }
-            
+
             const endTime = Date.now() + 5 * 1000;
             const defaultColors = ['#3369E8', '#D50F25', '#EEB211', '#009925'];
             const useColors = colors || defaultColors;
-            
+
             // Launch initial burst
             confetti({
                 startVelocity: 30,
@@ -1453,7 +1748,7 @@
                 colors: useColors,
                 zIndex: 1000
             });
-            
+
             // Continuous bursts
             confettiInterval = setInterval(() => {
                 if (Date.now() > endTime) {
@@ -1496,11 +1791,11 @@
             const modal = document.getElementById('winnerModal');
             const header = document.getElementById('winnerModalHeader');
             const winnerColor = getWinnerColor(winnerName);
-            
+
             // Set header background color to match the winner's segment
             header.style.backgroundColor = winnerColor;
             document.getElementById('winnerText').innerText = winnerName;
-            
+
             // Play sounds
             dingSound.currentTime = 0;
             applauseSound.currentTime = 0;
@@ -1525,10 +1820,10 @@
 
         function removeWinner() {
             const matchIndex = rawEntriesList.indexOf(lastWinnerName);
-            if (matchIndex > -1) { 
-                rawEntriesList.splice(matchIndex, 1); 
-                textareaEditor.innerText = rawEntriesList.join('\n'); 
-                parseTextInput(); 
+            if (matchIndex > -1) {
+                rawEntriesList.splice(matchIndex, 1);
+                textareaEditor.innerText = rawEntriesList.join('\n');
+                parseTextInput();
             }
             closeWinnerModal();
         }
@@ -1546,7 +1841,7 @@
             let o = Math.max(0, Math.min(255, Math.round(r + 255 * t)));
             let s = Math.max(0, Math.min(255, Math.round(i + 255 * t)));
             let c = Math.max(0, Math.min(255, Math.round(a + 255 * t)));
-            let l = function(e) { return e.toString(16).padStart(2, '0'); };
+            let l = function (e) { return e.toString(16).padStart(2, '0'); };
             return '#' + l(o) + l(s) + l(c);
         }
         function Ve(e, t, n, r, i) { return (t ** 2 - (i / 2) ** 2) ** .5 - Math.max(i * Math.cos(e) / (2 * Math.sin(e)), n) >= r; }
@@ -1584,7 +1879,7 @@
                 if (e.entry.text) {
                     let n = e.context;
                     let r = e.entry.text || '';
-                    let fontString = _v(n, r, e.displayEntries.map(function(e) { return e.text || ''; }), e.wheelRadius, e.hubRadius, e.radians, e.wheelConfig.font);
+                    let fontString = _v(n, r, e.displayEntries.map(function (e) { return e.text || ''; }), e.wheelRadius, e.hubRadius, e.radians, e.wheelConfig.font);
                     n.font = fontString;
                     n.lineJoin = 'round';
                     n.textBaseline = 'middle';
@@ -1630,7 +1925,7 @@
                 this.drawLightFromTop(e, s);
                 if (o) this.drawPointer(e, i, s, o);
                 this.drawCenterImage(e, i, t, c);
-                try { this.drawCoverPlate(e, s, c, r, n); } catch (ex) {}
+                try { this.drawCoverPlate(e, s, c, r, n); } catch (ex) { }
                 if (a) this.drawWatermark(e, a, i);
             }
             getHubRadius(e, t) {
@@ -1664,10 +1959,10 @@
             }
             drawWheelNoCache(e) {
                 this.drawSlices(e);
-                try { this.drawTexture(e.context, e.wheelRadius); } catch (ex) {}
+                try { this.drawTexture(e.context, e.wheelRadius); } catch (ex) { }
                 this.drawCenterCircle(e.context, e.wheelConfig, e.hubRadius);
             }
-            drawCoverImage(e, t, n, r) {}
+            drawCoverImage(e, t, n, r) { }
             drawSlices(e) {
                 let t = e.context;
                 t.save();
@@ -1721,7 +2016,7 @@
                 e.strokeStyle = p; e.beginPath(); e.moveTo(s, c); e.lineTo(o, 0); e.lineTo(s, l); e.stroke();
                 e.restore();
             }
-            drawTexture(e, t) {}
+            drawTexture(e, t) { }
             drawWheelFaceShadow(e, t) {
                 if (!this.wheelFaceShadowImage) { this.wheelFaceShadowImage = kv(e); this.drawWheelFaceShadowNoCache(qy(this.wheelFaceShadowImage), t); }
                 e.drawImage(this.wheelFaceShadowImage, 0, 0);
@@ -1756,10 +2051,10 @@
                 e.beginPath(); e.arc(0, 0, t - 2, 0, Math.PI * 2); e.lineWidth = 4; e.strokeStyle = n; e.stroke();
                 e.restore();
             }
-            drawCoverPlate(e, t, n, r, i) {}
-            drawCenterImage(e, t, n, r) {}
-            drawWatermark(e, t, n) {}
-            getImageFromData(e) { if (e) { if (!this.imageDataCache[e]) { let t = new Image(); t.onload = function() { this.clearCachedWheelImage(); }.bind(this); t.setAttribute('crossOrigin', 'anonymous'); t.src = e; this.imageDataCache[e] = t; } return this.imageDataCache[e]; } }
+            drawCoverPlate(e, t, n, r, i) { }
+            drawCenterImage(e, t, n, r) { }
+            drawWatermark(e, t, n) { }
+            getImageFromData(e) { if (e) { if (!this.imageDataCache[e]) { let t = new Image(); t.onload = function () { this.clearCachedWheelImage(); }.bind(this); t.setAttribute('crossOrigin', 'anonymous'); t.src = e; this.imageDataCache[e] = t; } return this.imageDataCache[e]; } }
             clearCachedWheelImage() { this.wheelImage = null; }
         }
 
@@ -1817,7 +2112,7 @@
                 socket.send(JSON.stringify({ type: "sync_entries", entries: rawEntriesList }));
             }
         }
-        function jsonParseSafe(str) { try { return JSON.parse(str); } catch(e) { return null; } }
+        function jsonParseSafe(str) { try { return JSON.parse(str); } catch (e) { return null; } }
 
         function parseTextInput() {
             const rawText = textareaEditor.innerText || '';
@@ -1899,24 +2194,24 @@
             if (targetSliceIndex === -1) targetSliceIndex = 0;
             const sliceCount = renderSlicesList.length;
             const sliceWidth = TWO_PI / sliceCount;
-            
+
             // Random offset within the winning slice for natural look
             const randomOffset = (Math.random() - 0.5) * sliceWidth * 0.8;
             const centerAngle = targetSliceIndex * sliceWidth;
             const finalRestAngle = centerAngle + randomOffset;
-            
+
             const speedTurnsMap = { 1: 3, 2: 5, 3: 8, 4: 12, 5: 18 };
             const fullTurns = speedTurnsMap[configState.spinSpeed] || 8;
-            
+
             animationStartAngle = currentRotationAngle % TWO_PI;
             targetEndingAngle = TWO_PI * fullTurns + finalRestAngle;
             while (targetEndingAngle <= animationStartAngle) {
                 targetEndingAngle += TWO_PI;
             }
-            
+
             animationStartTimestamp = performance.now();
             requestAnimationFrame(wheelTargetedSpinLoop);
-            
+
             // Initialize tick sound
             initTickSound();
             if (tickAudio) {
@@ -1935,28 +2230,28 @@
             const progress = Math.min(1, elapsed / durationMs);
             const easedProgress = easeOutCubic(progress);
             currentRotationAngle = animationStartAngle + (targetEndingAngle - animationStartAngle) * easedProgress;
-            
+
             // Play tick sound when crossing segment boundaries
             const currentSegmentIdx = getWinningSegmentIndex();
             if (currentSegmentIdx !== lastTickSegment && currentSegmentIdx >= 0 && progress < 1) {
                 playTickSound();
                 lastTickSegment = currentSegmentIdx;
             }
-            
-            if (currentSegmentIdx !== lastSegmentIndex && currentSegmentIdx >= 0) { 
-                updatePointerToMatchTargetAngle(); 
-                lastSegmentIndex = currentSegmentIdx; 
+
+            if (currentSegmentIdx !== lastSegmentIndex && currentSegmentIdx >= 0) {
+                updatePointerToMatchTargetAngle();
+                lastSegmentIndex = currentSegmentIdx;
             }
-            
+
             drawWheelLayout();
-            
+
             if (progress < 1) {
                 requestAnimationFrame(wheelTargetedSpinLoop);
             } else {
                 isSpinning = false;
                 const finalIdx = getWinningSegmentIndex();
-                if (finalIdx >= 0) { 
-                    lastWinnerName = renderSlicesList[finalIdx]; 
+                if (finalIdx >= 0) {
+                    lastWinnerName = renderSlicesList[finalIdx];
                     setTimeout(() => {
                         // Show winner with confetti behind modal
                         showWinnerModal(lastWinnerName);
@@ -2055,15 +2350,15 @@
             if (selectedSound === 'none') return;
             previewOscillator = audioContextInstance.createOscillator();
             const gain = audioContextInstance.createGain();
-            if (selectedSound === 'tick') { 
+            if (selectedSound === 'tick') {
                 // Use actual tick sound for preview
                 try {
                     const sound = new Audio(TICK_SOUND_URL);
                     sound.volume = vol;
                     sound.play();
                     return;
-                } catch(e) {
-                    previewOscillator.type = 'triangle'; 
+                } catch (e) {
+                    previewOscillator.type = 'triangle';
                     previewOscillator.frequency.setValueAtTime(450, audioContextInstance.currentTime);
                 }
             } else if (selectedSound === 'chime') { previewOscillator.type = 'sine'; previewOscillator.frequency.setValueAtTime(1200, audioContextInstance.currentTime); }
@@ -2074,10 +2369,10 @@
             previewOscillator.start();
             setTimeout(stopPreviewAudio, 500);
         }
-        function stopPreviewAudio() { 
-            if (previewOscillator) { 
-                try { previewOscillator.stop(); } catch(e){} 
-                previewOscillator = null; 
+        function stopPreviewAudio() {
+            if (previewOscillator) {
+                try { previewOscillator.stop(); } catch (e) { }
+                previewOscillator = null;
             }
         }
 
@@ -2099,7 +2394,7 @@
         // --- Shuffle / Sort ---
         function shuffleEntries() {
             if (isSpinning || rawEntriesList.length === 0) return;
-            for (let i = rawEntriesList.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [rawEntriesList[i], rawEntriesList[j]] = [rawEntriesList[j], rawEntriesList[i]]; }
+            for (let i = rawEntriesList.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[rawEntriesList[i], rawEntriesList[j]] = [rawEntriesList[j], rawEntriesList[i]]; }
             textareaEditor.innerText = rawEntriesList.join('\n');
             parseTextInput();
         }
@@ -2132,10 +2427,11 @@
             document.fonts.ready.then(() => { if (!isSpinning) drawWheelLayout(); });
         }
 
-        window.onload = function() {
+        window.onload = function () {
             initApp();
         };
     </script>
 
 </body>
+
 </html>
