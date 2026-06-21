@@ -119,21 +119,11 @@ else:
     }
 
 # Channel Layers
-if DEBUG:
-    CHANNEL_LAYERS = {
-        "default": {
-            "BACKEND": "channels.layers.InMemoryChannelLayer",
-        }
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
     }
-else:
-    CHANNEL_LAYERS = {
-        "default": {
-            "BACKEND": "channels_redis.core.RedisChannelLayer",
-            "CONFIG": {
-                "hosts": ["redis://red-d8rp4u3eo5us73dlepgg:mjMK4qaf7qf3yya6rZ1tq4KSGDg6K5iL@red-d8rp4u3eo5us73dlepgg:6379"],
-            },
-        },
-    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
