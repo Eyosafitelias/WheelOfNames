@@ -126,24 +126,14 @@ if DEBUG:
         }
     }
 else:
-    # Use Redis in production
-    REDIS_URL = os.getenv('REDIS_URL')
-    if REDIS_URL:
-        CHANNEL_LAYERS = {
-            "default": {
-                "BACKEND": "channels_redis.core.RedisChannelLayer",
-                "CONFIG": {
-                    "hosts": 'redis://red-d8rp4u3eo5us73dlepgg:mjMK4qaf7qf3yya6rZ1tq4KSGDg6K5iL@red-d8rp4u3eo5us73dlepgg:6379',
-                },
+    CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels_redis.core.RedisChannelLayer",
+            "CONFIG": {
+                "hosts": ["redis://red-d8rp4u3eo5us73dlepgg:mjMK4qaf7qf3yya6rZ1tq4KSGDg6K5iL@red-d8rp4u3eo5us73dlepgg:6379"],
             },
-        }
-    else:
-        # Fallback to in-memory if Redis is not configured (not recommended for production)
-        CHANNEL_LAYERS = {
-            "default": {
-                "BACKEND": "channels.layers.InMemoryChannelLayer",
-            }
-        }
+        },
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
