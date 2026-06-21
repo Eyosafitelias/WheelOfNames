@@ -18,7 +18,24 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
+from django.urls import re_path
 
 urlpatterns = [
     path('', include('wheel.urls')),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+# Add admin URL pattern (it was missing)
+urlpatterns += [
+    path('admin/', admin.site.urls),
+]
+
+# Serve static and media files in development only
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # In production, static files are served by WhiteNoise
+    # But if you need to serve media files (not recommended for production)
+    # Uncomment the following lines:
+    pass
