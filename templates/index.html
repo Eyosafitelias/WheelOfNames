@@ -2200,8 +2200,13 @@
             const centerAngle = targetSliceIndex * sliceWidth;
             const finalRestAngle = centerAngle + randomOffset;
 
+            // Map speed to the number of turns it would take to finish in 10 seconds.
             const speedTurnsMap = { 1: 3, 2: 5, 3: 8, 4: 12, 5: 18 };
-            const fullTurns = speedTurnsMap[configState.spinSpeed] || 8;
+            const baseTurns = speedTurnsMap[configState.spinSpeed] || 8;
+
+            // Adjust fullTurns dynamically based on the configured spinTime. 
+            // By multiplying by ratio, a 30s timer does 3x the turns of a 10s timer, keeping rotation speed identical.
+            const fullTurns = Math.max(1, Math.floor(baseTurns * (configState.spinTime / 10)));
 
             animationStartAngle = currentRotationAngle % TWO_PI;
             targetEndingAngle = TWO_PI * fullTurns + finalRestAngle;
@@ -2260,6 +2265,7 @@
                 }
             }
         }
+
 
         document.addEventListener('keydown', (e) => { if (e.ctrlKey && e.key === 'Enter') { e.preventDefault(); startSpin(); } });
 
