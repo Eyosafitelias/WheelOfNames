@@ -1864,7 +1864,7 @@
                 if (Ve(a / 2, r, i, textWidth, mid)) { bestSize = mid; low = mid + 1; } else { high = mid - 1; }
                 if (high - low < 2) break;
             }
-            return Math.max(8, Math.min(80, bestSize));
+            return Math.max(8, Math.min(70, bestSize));
         }
         function qv(e) {
             let t = e.context;
@@ -1913,7 +1913,7 @@
                 this.watermarkImage = null;
             }
             draw(e, t, n, r, i, a, o) {
-                let s = e.canvas.width * .44;
+                let s = e.canvas.width * .47;
                 let c = this.getHubRadius(i, s);
                 this.drawBackground(e);
                 if (i.drawShadow) this.drawWheelShadow(e, s);
